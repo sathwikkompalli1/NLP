@@ -1,0 +1,758 @@
+/* ═══════════════════════════════════════════════════════════════
+   IQAS — Intelligent Question Answering System
+   Premium Dark Theme | Custom Streamlit CSS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Root Variables ── */
+:root {
+    --primary: #1E3A5F;
+    --primary-light: #2A5082;
+    --accent: #00B4D8;
+    --accent-glow: rgba(0, 180, 216, 0.25);
+    --success: #2ECC71;
+    --warning: #F39C12;
+    --error: #E74C3C;
+    --bg-dark: #0F1117;
+    --bg-card: #1A1D29;
+    --bg-card-hover: #22263A;
+    --bg-sidebar: #0D0F14;
+    --text-primary: #E8EAED;
+    --text-secondary: #9AA0A6;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-accent: rgba(0, 180, 216, 0.3);
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    --shadow-accent: 0 4px 24px rgba(0, 180, 216, 0.15);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-pill: 50px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Global Styling ── */
+.stApp {
+    background-color: var(--bg-dark) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ── Sidebar Branding ── */
+.sidebar-brand {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    padding: 24px 20px;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid var(--border-accent);
+    box-shadow: var(--shadow-accent);
+}
+
+.sidebar-brand h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.sidebar-brand p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 6px 0 0 0;
+}
+
+/* ── Status Badge ── */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.status-badge.online {
+    background: rgba(46, 204, 113, 0.15);
+    color: var(--success);
+    border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.status-badge.offline {
+    background: rgba(231, 76, 60, 0.15);
+    color: var(--error);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* ── Answer Card ── */
+.answer-card {
+    background: var(--bg-card);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin: 16px 0;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.answer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-glow), transparent);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.answer-card:hover {
+    box-shadow: var(--shadow-accent);
+    transform: translateY(-2px);
+}
+
+.answer-card:hover::before {
+    opacity: 1;
+}
+
+.answer-card .answer-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Confidence Badge ── */
+.confidence-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.confidence-high {
+    background: rgba(46, 204, 113, 0.15);
+    color: var(--success);
+    border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+.confidence-med {
+    background: rgba(243, 156, 18, 0.15);
+    color: var(--warning);
+    border: 1px solid rgba(243, 156, 18, 0.4);
+}
+
+.confidence-low {
+    background: rgba(231, 76, 60, 0.15);
+    color: var(--error);
+    border: 1px solid rgba(231, 76, 60, 0.4);
+}
+
+/* ── Source Citation Chip ── */
+.source-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 180, 216, 0.1);
+    color: var(--accent);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1px solid rgba(0, 180, 216, 0.25);
+    transition: var(--transition);
+}
+
+.source-chip:hover {
+    background: rgba(0, 180, 216, 0.2);
+}
+
+/* ── Entity Highlight Spans ── */
+.entity-highlight {
+    display: inline;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9em;
+    margin: 0 2px;
+}
+
+.entity-PERSON { background-color: rgba(255, 107, 107, 0.2); color: #FF6B6B; }
+.entity-ORG { background-color: rgba(78, 205, 196, 0.2); color: #4ECDC4; }
+.entity-GPE { background-color: rgba(69, 183, 209, 0.2); color: #45B7D1; }
+.entity-DATE { background-color: rgba(150, 206, 180, 0.2); color: #96CEB4; }
+.entity-PRODUCT { background-color: rgba(162, 155, 254, 0.2); color: #A29BFE; }
+.entity-EVENT { background-color: rgba(253, 121, 168, 0.2); color: #FD79A8; }
+
+/* ── Upload Zone Styling ── */
+.upload-zone {
+    background: var(--bg-card);
+    border: 2px dashed var(--border-accent);
+    border-radius: var(--radius);
+    padding: 40px 30px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.upload-zone:hover {
+    border-color: var(--accent);
+    background: var(--bg-card-hover);
+    box-shadow: var(--shadow-accent);
+}
+
+/* ── Metric Card ── */
+.metric-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    text-align: center;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.metric-card:hover {
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-accent);
+    transform: translateY(-2px);
+}
+
+.metric-card .metric-value {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), #0077B6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.metric-card .metric-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* ── NLP Breakdown Table ── */
+.nlp-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.nlp-table th {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: left;
+}
+
+.nlp-table td {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
+}
+
+.nlp-table tr:last-child td {
+    border-bottom: none;
+}
+
+.nlp-table tr:hover td {
+    background: var(--bg-card-hover);
+}
+
+/* ── Section Headers ── */
+.section-header {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 32px 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+}
+
+/* ── Chat History Item ── */
+.chat-item {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.chat-item:hover {
+    border-color: var(--border-accent);
+}
+
+.chat-question {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.chat-answer {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -468px 0; }
+    100% { background-position: 468px 0; }
+}
+
+.animate-fade-in {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── Streamlit Overrides ── */
+.stTextInput > div > div > input {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--text-primary) !important;
+    padding: 12px 16px !important;
+    font-size: 1rem !important;
+    transition: var(--transition) !important;
+}
+
+.stTextInput > div > div > input:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px var(--accent-glow) !important;
+}
+
+.stButton > button {
+    background: linear-gradient(135deg, var(--accent), #0077B6) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 10px 28px !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    transition: var(--transition) !important;
+    letter-spacing: 0.02em !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 180, 216, 0.3) !important;
+}
+
+.stButton > button:active {
+    transform: translateY(0) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ENHANCED UI — Premium Creative Styles
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Feature Hero Section ── */
+.feature-hero {
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.4), rgba(0, 180, 216, 0.08));
+    border: 1px solid rgba(0, 180, 216, 0.15);
+    border-radius: 20px;
+    padding: 48px 40px 40px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.feature-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(0, 180, 216, 0.06) 0%, transparent 60%),
+                radial-gradient(circle at 70% 60%, rgba(30, 58, 95, 0.08) 0%, transparent 60%);
+    animation: heroGlow 8s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes heroGlow {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-5%, -3%) rotate(3deg); }
+}
+
+.feature-hero-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+    animation: floatBounce 3s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes floatBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.feature-hero-title {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #E8EAED, #00B4D8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 8px 0;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.02em;
+}
+
+.feature-hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Glassmorphism Cards ── */
+.glass-card {
+    background: rgba(26, 29, 41, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 24px;
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    border-color: rgba(0, 180, 216, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 180, 216, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ── Animated Gradient Border ── */
+.gradient-border {
+    position: relative;
+    border-radius: 16px;
+    padding: 24px;
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--accent), #6C5CE7, #FD79A8, var(--accent));
+    background-size: 300% 300%;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: gradientShift 4s ease infinite;
+    pointer-events: none;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ── Enhanced Metric Cards ── */
+.metric-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), #6C5CE7);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.metric-card:hover::after {
+    opacity: 1;
+}
+
+/* ── Enhanced Sidebar ── */
+.sidebar-brand {
+    background: linear-gradient(135deg, #1E3A5F, #2A5082, #0077B6) !important;
+    background-size: 200% 200% !important;
+    animation: sidebarGradient 6s ease infinite !important;
+}
+
+@keyframes sidebarGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ── Glow Effect for Active Elements ── */
+.stRadio > div > label:hover {
+    text-shadow: 0 0 8px rgba(0, 180, 216, 0.3);
+}
+
+/* ── Enhanced Answer Card Glow ── */
+.answer-card {
+    border-left: 4px solid transparent !important;
+    border-image: linear-gradient(to bottom, var(--accent), #6C5CE7) 1 !important;
+}
+
+/* ── Tag / Pill Styles ── */
+.tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: var(--transition);
+}
+
+.tag-pill:hover {
+    transform: scale(1.05);
+}
+
+/* ── Floating Particles Background for Feature Pages ── */
+.particles-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particles-bg::before,
+.particles-bg::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    animation: floatParticle 15s ease-in-out infinite;
+}
+
+.particles-bg::before {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 180, 216, 0.03) 0%, transparent 70%);
+    top: 20%;
+    right: -5%;
+}
+
+.particles-bg::after {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.03) 0%, transparent 70%);
+    bottom: 10%;
+    left: -5%;
+    animation-delay: -7s;
+}
+
+@keyframes floatParticle {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(30px, -20px); }
+    50% { transform: translate(-20px, 30px); }
+    75% { transform: translate(20px, 20px); }
+}
+
+/* ── Smooth Page Transitions ── */
+.main .block-container {
+    animation: pageSlideIn 0.4s ease-out;
+}
+
+@keyframes pageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Enhanced Expander Styles ── */
+.streamlit-expanderHeader {
+    font-weight: 600 !important;
+    border-radius: var(--radius-sm) !important;
+    transition: var(--transition) !important;
+}
+
+.streamlit-expanderHeader:hover {
+    color: var(--accent) !important;
+}
+
+/* ── Enhanced Selectbox ── */
+.stSelectbox > div > div {
+    background-color: var(--bg-card) !important;
+    border-radius: var(--radius-sm) !important;
+    border-color: var(--border) !important;
+    transition: var(--transition) !important;
+}
+
+.stSelectbox > div > div:hover {
+    border-color: var(--accent) !important;
+}
+
+/* ── Enhanced TextArea ── */
+.stTextArea > div > div > textarea {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--text-primary) !important;
+    transition: var(--transition) !important;
+    font-size: 0.95rem !important;
+}
+
+.stTextArea > div > div > textarea:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px var(--accent-glow) !important;
+}
+
+/* ── Enhanced Multiselect ── */
+.stMultiSelect > div > div {
+    background-color: var(--bg-card) !important;
+    border-radius: var(--radius-sm) !important;
+    border-color: var(--border) !important;
+}
+
+.stMultiSelect > div > div:hover {
+    border-color: var(--accent) !important;
+}
+
+/* ── Scrollbar Styling ── */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 180, 216, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 180, 216, 0.5);
+}
+
+/* ── Enhanced Dataframe Table ── */
+.stDataFrame {
+    border-radius: var(--radius) !important;
+    overflow: hidden !important;
+    border: 1px solid var(--border) !important;
+}
+
+/* ── Tooltip Glow ── */
+[data-testid="stTooltipHoverTarget"]:hover {
+    text-shadow: 0 0 6px rgba(0, 180, 216, 0.4);
+}
+
+/* ── Enhanced Section Header with Accent Line ── */
+.section-header {
+    position: relative;
+    padding-left: 16px !important;
+    border-bottom: none !important;
+    border-left: 3px solid var(--accent) !important;
+}
+
+.section-header::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+/* ── Loading Shimmer Effect ── */
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        var(--bg-card) 0%,
+        var(--bg-card-hover) 50%,
+        var(--bg-card) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ── Responsive improvements ── */
+@media (max-width: 768px) {
+    .feature-hero {
+        padding: 32px 20px;
+    }
+
+    .feature-hero-title {
+        font-size: 1.5rem;
+    }
+
+    .feature-hero-icon {
+        font-size: 2.5rem;
+    }
+
+    .metric-card .metric-value {
+        font-size: 1.5rem;
+    }
+}

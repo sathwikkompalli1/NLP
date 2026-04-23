@@ -1,0 +1,48 @@
+# Virtual environment — never copy into Docker
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Test & dev tools
+tests/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Git
+.git/
+.gitignore
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs (container writes its own)
+logs/
+
+# Uploaded data (mounted as volumes in production)
+data/uploads/
+data/processed/
+models/faiss_index/index.faiss
+models/faiss_index/metadata.json
+models/embeddings_cache/
+
+# Secrets
+.env
+
+# Notebooks
+*.ipynb
+.ipynb_checkpoints/

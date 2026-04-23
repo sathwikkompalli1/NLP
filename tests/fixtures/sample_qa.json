@@ -1,0 +1,52 @@
+{
+  "test_questions": [
+    {
+      "question": "What is Natural Language Processing?",
+      "expected_type": "DEFINE",
+      "expected_keywords": ["natural", "language", "processing", "nlp"],
+      "min_confidence": 0.3
+    },
+    {
+      "question": "What is tokenization?",
+      "expected_type": "DEFINE",
+      "expected_keywords": ["tokenization", "tokens", "text"],
+      "min_confidence": 0.3
+    },
+    {
+      "question": "Who developed Word2Vec?",
+      "expected_type": "WHO",
+      "expected_keywords": ["word2vec", "mikolov", "google"],
+      "min_confidence": 0.3
+    },
+    {
+      "question": "When was the Transformer architecture introduced?",
+      "expected_type": "WHEN",
+      "expected_keywords": ["transformer", "2017", "attention"],
+      "min_confidence": 0.3
+    },
+    {
+      "question": "How does BERT understand word meaning?",
+      "expected_type": "HOW",
+      "expected_keywords": ["bert", "bidirectional", "context"],
+      "min_confidence": 0.3
+    },
+    {
+      "question": "What are common POS tags?",
+      "expected_type": "WHAT",
+      "expected_keywords": ["pos", "noun", "verb", "adjective"],
+      "min_confidence": 0.3
+    },
+    {
+      "question": "What is Named Entity Recognition used for?",
+      "expected_type": "WHAT",
+      "expected_keywords": ["ner", "entity", "recognition"],
+      "min_confidence": 0.3
+    },
+    {
+      "question": "Explain the concept of word embeddings",
+      "expected_type": "DEFINE",
+      "expected_keywords": ["embeddings", "vector", "semantic"],
+      "min_confidence": 0.3
+    }
+  ]
+}

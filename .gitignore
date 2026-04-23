@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables
+.env
+
+# Streamlit
+.streamlit/credentials.toml
+
+# Logs
+logs/
+*.log
+
+# Data & Models
+data/uploads/*
+!data/uploads/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+models/faiss_index/*
+!models/faiss_index/.gitkeep
+models/embeddings_cache/*
+!models/embeddings_cache/.gitkeep
+
+# IDEs / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Gemini / AI tools
+.gemini/
+.claude/
+.code-review-graph/
+graphify-out/
+
+# Temp Files
+dump_chunks.py
+*.tmp

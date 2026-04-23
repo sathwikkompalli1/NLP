@@ -1,0 +1,35 @@
+services:
+  iqas:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: iqas:latest
+    container_name: iqas_app
+    ports:
+      - "8501:8501"
+    volumes:
+      # Persist uploaded documents across container restarts
+      - iqas_data:/app/data
+      # Persist FAISS index so you don't re-index after restart
+      - iqas_models:/app/models
+      # Persist log files
+      - iqas_logs:/app/logs
+    env_file:
+      - .env
+    environment:
+      - IQAS_LOG_LEVEL=INFO
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  iqas_data:
+    driver: local
+  iqas_models:
+    driver: local
+  iqas_logs:
+    driver: local

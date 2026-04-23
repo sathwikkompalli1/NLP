@@ -1,0 +1,8 @@
+[server]
+# Disable file watcher entirely — stops Streamlit from scanning all
+# HuggingFace transformers vision sub-modules that require torchvision.
+# Hot-reload is not needed; restart Streamlit manually after code changes.
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false

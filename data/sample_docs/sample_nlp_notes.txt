@@ -1,0 +1,63 @@
+Natural Language Processing (NLP) — Comprehensive Lecture Notes
+================================================================
+
+1. Introduction to Natural Language Processing
+-----------------------------------------------
+Natural Language Processing (NLP) is a subfield of artificial intelligence and computational linguistics that focuses on the interaction between computers and human (natural) languages. The primary goal of NLP is to enable computers to understand, interpret, generate, and respond to human language in a meaningful and useful way. NLP combines techniques from computer science, linguistics, and machine learning to process and analyze large amounts of natural language data.
+
+Applications of NLP include machine translation, sentiment analysis, chatbots, speech recognition, text summarization, question answering systems, and information extraction. Major technology companies like Google, Microsoft, and OpenAI invest heavily in NLP research.
+
+2. Tokenization
+-----------------
+Tokenization is the process of breaking down text into smaller units called tokens. These tokens can be words, subwords, or characters depending on the tokenization strategy used. Tokenization is typically the first step in any NLP pipeline.
+
+Word tokenization splits text into individual words. For example, the sentence "Natural language processing is fascinating" would be tokenized into: ["Natural", "language", "processing", "is", "fascinating"]. Sentence tokenization splits a document into individual sentences. More advanced tokenizers, like those used in BERT and GPT models, use subword tokenization methods such as Byte Pair Encoding (BPE) or WordPiece.
+
+Challenges in tokenization include handling contractions (e.g., "don't" → "do" + "n't"), hyphenated words, abbreviations, and multilingual text.
+
+3. Part-of-Speech (POS) Tagging
+---------------------------------
+Part-of-Speech tagging is the process of assigning grammatical categories to each word in a sentence. Common POS tags include NOUN, VERB, ADJ (adjective), ADV (adverb), PRON (pronoun), DET (determiner), ADP (preposition), CONJ (conjunction), and PUNCT (punctuation).
+
+For example, in the sentence "The quick brown fox jumps over the lazy dog":
+- "The" → DET (determiner)
+- "quick" → ADJ (adjective)
+- "brown" → ADJ (adjective)
+- "fox" → NOUN
+- "jumps" → VERB
+- "over" → ADP (preposition)
+- "the" → DET
+- "lazy" → ADJ
+- "dog" → NOUN
+
+POS tagging is essential for tasks like syntactic parsing, named entity recognition, and keyword extraction. Libraries like spaCy and NLTK provide pre-trained POS taggers.
+
+4. Named Entity Recognition (NER)
+------------------------------------
+Named Entity Recognition is the task of identifying and classifying named entities in text into predefined categories. Common entity types include PERSON (e.g., "Dr. Alan Turing"), ORGANIZATION (e.g., "Google", "MIT"), LOCATION (e.g., "London", "India"), DATE (e.g., "January 2024"), MONEY, PERCENT, and TIME.
+
+NER is crucial for information extraction, question answering, and knowledge graph construction. Modern NER systems use deep learning approaches such as BiLSTM-CRF or transformer-based models. spaCy provides an efficient NER pipeline that can recognize entities in real-time.
+
+5. Word Embeddings and Word2Vec
+----------------------------------
+Word embeddings are dense vector representations of words that capture semantic meaning. Unlike one-hot encoding, which creates sparse vectors, word embeddings map words to continuous vector spaces where semantically similar words are closer together.
+
+Word2Vec, developed by Tomas Mikolov at Google in 2013, introduced two architectures for learning word embeddings: Continuous Bag of Words (CBOW) and Skip-gram. CBOW predicts a target word from its context words, while Skip-gram predicts context words from a target word.
+
+Key properties of word embeddings include the ability to capture analogies. For example, the vector operation king - man + woman ≈ queen. Other popular embedding methods include GloVe (Global Vectors for Word Representation) and FastText.
+
+6. Transformer Architecture and BERT
+--------------------------------------
+The Transformer architecture, introduced in the landmark paper "Attention Is All You Need" by Vaswani et al. in 2017, revolutionized NLP. Transformers use self-attention mechanisms to process input sequences in parallel, unlike RNNs which process sequentially.
+
+BERT (Bidirectional Encoder Representations from Transformers), developed by Google in 2018, is a pre-trained language model that uses bidirectional context to understand word meaning. BERT is pre-trained on masked language modeling and next sentence prediction tasks, and can be fine-tuned for various downstream tasks like sentiment analysis, question answering, and text classification.
+
+Sentence-Transformers extends BERT by producing sentence-level embeddings optimized for semantic similarity tasks. Models like all-MiniLM-L6-v2 generate 384-dimensional embeddings that capture sentence meaning efficiently.
+
+7. Information Retrieval and Semantic Search
+----------------------------------------------
+Information retrieval (IR) is the process of finding relevant documents or passages from a large corpus given a query. Traditional IR methods use TF-IDF (Term Frequency-Inverse Document Frequency) and BM25 for sparse retrieval based on keyword matching.
+
+Modern semantic search uses dense vector representations (embeddings) to find semantically similar content. FAISS (Facebook AI Similarity Search) is a library for efficient similarity search and clustering of dense vectors. It supports various index types including flat indexes for exact search and IVF indexes for approximate nearest neighbor search.
+
+Hybrid retrieval combines sparse (BM25) and dense (embedding-based) methods using techniques like Reciprocal Rank Fusion (RRF) to leverage the strengths of both approaches. Cross-encoder re-ranking further improves results by jointly encoding the query and passage for fine-grained relevance scoring.
